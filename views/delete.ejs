@@ -1,12 +1,10 @@
 <%-include("C:/Users/pg/Desktop/blog/views/partials/header")-%>
-<h1>HOME</h1>
-<p>
-  <%=content%>
-  </p>
   <%posts.forEach(function(post){%>
      <h2><%=post.topic%></h2>
      <p><%=post.postBody.substring(0,100)+"...."%><a href="/posts/<%=post.topic%>">Read More</a></p>
+     <form action="/delete" method="post">
+     <button class="btn btn-primary" type="submit" name="posttopic" value=<%=post._id%>>DELETE</button>
+     </form>
  <%});%>
-
 
 <%-include("C:/Users/pg/Desktop/blog/views/partials/footer")-%>
